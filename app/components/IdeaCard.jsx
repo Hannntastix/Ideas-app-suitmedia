@@ -7,23 +7,18 @@ export default function IdeaCard({ idea }) {
 
     // Fungsi untuk mendapatkan URL gambar yang valid
     const getImageUrl = () => {
-        // Cek berbagai kemungkinan struktur data
         if (medium_image) {
-            // Jika medium_image adalah array
             if (Array.isArray(medium_image) && medium_image.length > 0) {
                 return medium_image[0]?.url || medium_image[0];
             }
-            // Jika medium_image adalah string URL langsung
             if (typeof medium_image === 'string') {
                 return medium_image;
-            }
-            // Jika medium_image adalah object dengan property url
+            }l
             if (medium_image.url) {
                 return medium_image.url;
             }
         }
 
-        // Fallback ke small_image jika medium_image tidak ada
         if (small_image) {
             if (Array.isArray(small_image) && small_image.length > 0) {
                 return small_image[0]?.url || small_image[0];

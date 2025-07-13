@@ -10,7 +10,6 @@ export async function GET(request) {
         'sort': sort,
     });
 
-    // Tambahkan append untuk image
     params.append('append[]', 'small_image');
     params.append('append[]', 'medium_image');
 
@@ -28,13 +27,10 @@ export async function GET(request) {
 
         const data = await response.json();
 
-        // Log untuk debugging
         console.log('Raw API Response:', JSON.stringify(data, null, 2));
 
-        // Transformasi data jika perlu
         if (data.data && Array.isArray(data.data)) {
             data.data = data.data.map(item => {
-                // Log struktur setiap item
                 console.log('Item structure:', {
                     id: item.id,
                     title: item.title,
