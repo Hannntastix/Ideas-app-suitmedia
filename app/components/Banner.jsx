@@ -15,7 +15,7 @@ export default function Banner({ imageUrl }) {
     }, []);
 
     return (
-        <div className="relative h-[400px] overflow-hidden">
+        <div className="relative h-[500px] overflow-hidden">
             <div
                 className="absolute inset-0 w-full h-full"
                 style={{ transform: `translateY(${offsetY * 0.4}px)` }}
