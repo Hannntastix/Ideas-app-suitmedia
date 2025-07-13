@@ -64,13 +64,12 @@ export default function IdeaCard({ idea }) {
                     </div>
                 ) : imageUrl ? (
                     <img
-                        src={imageUrl}
+                        src={imageUrl} // Gambarnya tidak muncul karena ERR_BLOCKED_BY_ORB = Blocking yang dilakukan oleh browser dalam tujuan sistem keamanan
                         alt={title}
                         onLoad={handleImageLoad}
                         onError={handleImageError}
                         className={`w-full h-full object-cover transition-opacity duration-300 ${imageLoading ? 'opacity-0' : 'opacity-100'
                             }`}
-                        referrerPolicy="no-referrer"
                         loading="lazy"
                     />
                 ) : (

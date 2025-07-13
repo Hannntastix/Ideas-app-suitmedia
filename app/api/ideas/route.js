@@ -31,13 +31,13 @@ export async function GET(request) {
 
         if (data.data && Array.isArray(data.data)) {
             data.data = data.data.map(item => {
-                console.log('Item structure:', {
-                    id: item.id,
-                    title: item.title,
-                    medium_image: item.medium_image,
-                    small_image: item.small_image,
-                    published_at: item.published_at
-                });
+                // console.log('Item structure:', {
+                //     id: item.id,
+                //     title: item.title,
+                //     medium_image: item.medium_image,
+                //     small_image: item.small_image,
+                //     published_at: item.published_at
+                // });
 
                 return item;
             });

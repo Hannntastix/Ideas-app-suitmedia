@@ -43,43 +43,55 @@ export default function Home() {
       <div className="bg-white pt-5 pb-20">
         <div className="max-w-7xl mx-auto px-6">
           {/* Controls Section */}
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
+          <div className="flex flex-row justify-between  sm:items-center mb-8 gap-4">
             {/* Showing Results */}
-            <div className="text-sm text-gray-600 order-2 sm:order-1">
+            <div className="text-sm text-gray-600 order-1 sm:order-2">
               Showing {((page - 1) * size) + 1} - {Math.min(page * size, total)} of {total}
             </div>
 
             {/* Sort & Size Controls */}
-            <div className="flex items-center gap-4 order-1 sm:order-2">
+            <div className="flex items-end sm:items-center gap-4 order-1 sm:order-2 sm:flex-row flex-col">
+              {/* Per Page Dropdown */}
               <div className="flex items-center gap-2">
                 <label className="text-sm text-gray-600 whitespace-nowrap">Show per page:</label>
-                <select
-                  value={size}
-                  onChange={(e) => {
-                    setSize(Number(e.target.value));
-                    setPage(1);
-                  }}
-                  className="border border-gray-300 rounded-md px-3 py-2 text-sm bg-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                >
-                  <option value={10}>10</option>
-                  <option value={20}>20</option>
-                  <option value={50}>50</option>
-                </select>
+                <div className="relative">
+                  <select
+                    value={size}
+                    onChange={(e) => {
+                      setSize(Number(e.target.value));
+                      setPage(1);
+                    }}
+                    className="appearance-none border w-25 border-gray-300 rounded-full px-4 py-2 pr-8 text-sm bg-white shadow-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  >
+                    <option value={10}>10</option>
+                    <option value={20}>20</option>
+                    <option value={50}>50</option>
+                  </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-2 flex items-center text-black">
+                    ▼
+                  </div>
+                </div>
               </div>
 
+              {/* Sort Dropdown */}
               <div className="flex items-center gap-2">
                 <label className="text-sm text-gray-600 whitespace-nowrap">Sort by:</label>
-                <select
-                  value={sort}
-                  onChange={(e) => {
-                    setSort(e.target.value);
-                    setPage(1);
-                  }}
-                  className="border border-gray-300 rounded-md px-3 py-2 text-sm bg-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                >
-                  <option value="-published_at">Newest</option>
-                  <option value="published_at">Oldest</option>
-                </select>
+                <div className="relative">
+                  <select
+                    value={sort}
+                    onChange={(e) => {
+                      setSort(e.target.value);
+                      setPage(1);
+                    }}
+                    className="appearance-none sm:w-35 border border-gray-300 rounded-full px-4 py-2 pr-8 text-sm bg-white shadow-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  >
+                    <option value="-published_at">Newest</option>
+                    <option value="published_at">Oldest</option>
+                  </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-2 flex items-center text-black">
+                    ▼
+                  </div>
+                </div>
               </div>
             </div>
           </div>
